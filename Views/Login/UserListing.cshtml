@@ -1,0 +1,122 @@
+﻿@model MVCProject.Models.UserListingModel
+@{
+    ViewBag.Title = "UserListing";
+}
+
+@*@if (Session["Email"] != null)
+    {
+        <h2>UserListing</h2>
+    }
+    else
+    {
+        Response.Redirect("Loginuser");
+    }*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <title>User Listing</title>
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- jquery -->
+    <script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <!-- jquery dataTables -->
+    <link href="~/DataTables/DataTables-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-5">
+                    </div>
+                    <div class="col-sm-3">
+                        <h1>User Listing</h1>
+                    </div>
+                    <div class="col-sm-4">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="brand-link">LogOut</li>
+                            <li class="brand-link">User Profile</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-2">
+                        <input type="text" name="Txtsearch" placeholder="Search" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <input type="button" name="Btnsearch" value="search" class="btn btn-primary" />
+                        <div class="col-md-2">
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+
+                        <table id="userDetail" class="display" style="width:100%" border="1">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Gender</th>
+                                    <th>Education</th>
+                                    <th>Email</th>
+                                    <th>CreatedBy</th>
+                                    <th>CreatedDate</th>
+                                    <th>UpdatedBy</th>
+                                    <th>UpdatedBy</th>
+                                    <th>DeletedBy</th>
+                                    <th>DeletedDate</th>
+                                    <th>IsDeleted</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="setUserDetail">
+                                <tr id="loadingStatus"></tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        $("#loadingStatus").html("loading...");
+        $.get("/Login/getUserDetail", null, DataBind);
+
+    </script>
+</body>
+</html>
