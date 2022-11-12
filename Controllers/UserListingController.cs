@@ -43,6 +43,7 @@ namespace MVCProject.Controllers
 
                     SqlDataAdapter da = new SqlDataAdapter("sp_getUser", con);
                     DataTable dt = new DataTable();
+
                     da.Fill(dt);
 
                     //total number of rows count
