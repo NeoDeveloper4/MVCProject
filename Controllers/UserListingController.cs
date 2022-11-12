@@ -33,7 +33,6 @@ namespace MVCProject.Controllers
                     var sortColumnDir = Request.Form.GetValues("order[0][dir]").FirstOrDefault();
                     var searchValue = Request.Form.GetValues("search[value]").FirstOrDefault();
 
-
                     //Paging Size (10,20,50,100)    
                     int pageSize = length != null ? Convert.ToInt32(length) : 0;
                     int skip = start != null ? Convert.ToInt32(start) : 0;
