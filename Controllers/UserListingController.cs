@@ -52,7 +52,7 @@ namespace MVCProject.Controllers
                     return Json(new { draw = draw, 
                                       recordsFiltered = recordsTotal, 
                                       recordsTotal = recordsTotal,
-                                      data = data
+                                      data = abc
                                     });  
                 }  
                 }
